@@ -2,9 +2,6 @@
   "name": "Secrets-Starting-Code",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +17,9 @@
     "mongoose": "^5.5.9",
     "mongoose-encryption": "^2.0.2",
     "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "node app.js"
   },
   "devDependencies": {},
   "description": ""
