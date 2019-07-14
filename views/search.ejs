@@ -1,0 +1,115 @@
+<%- include('partials/header') %>
+
+<style>
+    .search-input{
+        max-width: 300px;
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .dropdown{
+        display: inline-block;
+    }
+
+    .alert{
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .search-btn{
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    table{
+        margin-top: 20px;
+    }
+</style>
+
+<h1>Search</h1>
+
+<% if ( typeof query != 'undefined' ){ %>
+    <div class="alert alert-info">
+    You searched for: <b> <%= query %> </b>
+    <% if ( typeof rating != 'undefined' && rating > 0 ){ %>
+        with minimum rating: <b> <%= rating %> </b>
+     <% } %>
+    </div>
+ <% } %>
+
+<form action="/search" method="POST" style="text-align: center;">
+    <input class="form-control search-input" type="text" name="query" placeholder="Search a hotel" value="<%= (typeof query != 'undefined') ? query : '' %>" required />
+    <input type="hidden" name="rating" id="rating" />
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Min Rating
+        </button>
+        <div class="dropdown-menu" id="rating-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"  href="#rating-10">10</a>
+            <a class="dropdown-item" href="#rating-9">9</a>
+            <a class="dropdown-item" href="#rating-8">8</a>
+            <a class="dropdown-item" href="#rating-7">7</a>
+            <a class="dropdown-item" href="#rating-6">6</a>
+            <a class="dropdown-item" href="#rating-5">5</a>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success search-btn">Search</button>
+</form>
+
+<% if ( typeof items != 'undefined' ){ %>
+    <% if ( !items.length ){ %>
+        <div class="alert alert-danger">No results found</div>
+    <% } else{ %>
+        <div class="row">
+            <div class="col-xs-8 offset-lg-4">
+                <table class="table table-responsive table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Reviews count</th>
+                            <th>Total Score</th>
+                            <th>Price</th>
+                            <th>Book</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% items.forEach(function(hotel){ %>
+                        <tr>
+                            <td><%= hotel.name %></td>
+                            <td><%= hotel.rating %></td>
+                            <td><%= hotel.reviews_count %></td>
+                            <td class="table-success"><%= Number(hotel.score).toFixed(2) %></td>
+                            <td><%= hotel.price %> &euro;</td>
+                            <td><a href="book?id=<%= hotel._id %>&query=<%= query %>&rating=<%= rating %>"><button type="button" class="btn btn-info">Book</button></a></td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     <% } %>
+ <% } %>
+
+ <%- include('partials/footer') %>
+
+<script>
+
+const menu = document.getElementById('rating-menu');
+menu.addEventListener('click', function(e) {
+    var target = e.target;
+    var elements = document.getElementsByClassName('active');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
+    if ( target.getAttribute("href").indexOf('-') != -1 ){
+        let rating = target.getAttribute("href").substring(8);
+        target.classList.add("active");
+        //console.log(rating);
+        document.getElementById('rating').value = rating;
+    }
+});
+
+ </script>

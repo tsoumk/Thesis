@@ -1,0 +1,60 @@
+
+body {
+  background-color: #E8ECEF;
+}
+
+img {
+  height: 50%;
+  width: 80%;
+}
+
+hr {
+  background-color: #66bfbf;
+}
+
+h1 {
+  color: #66BFBF;
+  font-size: 450%;
+  margin: 0 auto 0 auto;
+  font-family: 'Dancing Script', cursive;
+  line-height: 2;
+}
+
+.jumbotron {
+  padding-top: 50px;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.bottom-container {
+  background-color: #66BFBF;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  margin-top: auto;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-link{
+  color: #11999E;
+  margin: 20px;
+}
+
+.copyright{
+  color: #EAF6F6;
+  font-size: 0.8em;
+}
+
+.btn:hover {
+  background: #63aabc;
+  background-image: -webkit-linear-gradient(top, #63aabc, #2BC4AD);
+  background-image: -moz-linear-gradient(top, #63aabc, #2BC4AD);
+  background-image: -ms-linear-gradient(top, #63aabc, #2BC4AD);
+  background-image: -o-linear-gradient(top, #63aabc, #2BC4AD);
+  background-image: linear-gradient(to bottom, #63aabc, #2BC4AD);
+  text-decoration: none;
+}
