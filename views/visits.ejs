@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<% if ( typeof visits != 'undefined' ){ %>
+    <% if ( !visits.length ){ %>
+        <div class="alert alert-danger">You have no visits</div>
+    <% } else{ %>
+        <div class="row">
+            <div class="col-xs-8 offset-lg-2">
+                <table class="table table-responsive table-striped table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Location</th>
+                            <th>Rating</th>
+                            <th>Reviews count</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% visits.forEach(function(visit){ %>
+                        <tr>
+                            <td><%= visit.name %></td>
+                            <td><%= visit.location %></td>
+                            <td><%= visit.rating %></td>
+                            <td><%= visit.reviews_count %></td>
+                            <td><%= visit.price %> &euro;</td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     <% } %>
+ <% } %>
+
+<%- include('partials/footer') %>

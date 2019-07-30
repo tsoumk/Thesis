@@ -27,7 +27,7 @@
     }
 </style>
 
-<h1>Search</h1>
+<h1 class="centered">Search</h1>
 
 <% if ( typeof query != 'undefined' ){ %>
     <div class="alert alert-info">
@@ -63,11 +63,12 @@
         <div class="alert alert-danger">No results found</div>
     <% } else{ %>
         <div class="row">
-            <div class="col-xs-8 offset-lg-4">
+            <div class="col-xs-10 offset-lg-1">
                 <table class="table table-responsive table-striped table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>Hotel Name</th>
+                            <th>Location</th>
                             <th>Rating</th>
                             <th>Reviews count</th>
                             <th>Total Score</th>
@@ -79,6 +80,7 @@
                     <% items.forEach(function(hotel){ %>
                         <tr>
                             <td><%= hotel.name %></td>
+                            <td><%= hotel.location %></td>
                             <td><%= hotel.rating %></td>
                             <td><%= hotel.reviews_count %></td>
                             <td class="table-success"><%= Number(hotel.score).toFixed(2) %></td>

@@ -25,7 +25,7 @@ h1 {
 }
 
 .centered {
-    padding-top: 200px;
+    /* padding-top: 200px; */
     text-align: center;
 }
 
@@ -34,7 +34,7 @@ h1 {
   padding-top: 30px;
   padding-bottom: 10px;
   margin-top: auto;
-  /* position: absolute; */
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
