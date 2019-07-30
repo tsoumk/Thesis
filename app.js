@@ -30,7 +30,7 @@ if ( platform == 'win32' ){
 }
 //HEROKU
 else{
-  mongoose.connect("mongodb://kostis:kostis77@ds117178.mlab.com:117178/heroku_1vfsrfbc", {useNewUrlParser: true});
+  mongoose.connect("mongodb://kostis:kostis77@ds117178.mlab.com:17178/heroku_1vfsrfbc", {useNewUrlParser: true});
 }
 
 const userSchema = new mongoose.Schema({
