@@ -39,6 +39,12 @@ h1 {
   width: 100%;
 }
 
+
+footer{
+  position: relative;
+  height: 100px;
+}
+
 .footer-link{
   color: #11999E;
   margin: 20px;
